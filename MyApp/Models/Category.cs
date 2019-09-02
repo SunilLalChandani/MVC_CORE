@@ -13,6 +13,6 @@ namespace MyApp.Models
         public string categoryName { get; set; }
         public string description { get; set; }
         public IEnumerable<drinks> drinks { get; set; }
-
+        public string cat;
     }
 }
