@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MyApp.Models.Interface;
+using MyApp.Models.Mock;
 
 namespace MyApp
 {
@@ -24,6 +26,11 @@ namespace MyApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddTransient<IdrinkRepo, MockDrinkRepo>();
+            services.AddTransient<ICategoryRepo, MockCateogryRepo>();
+
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -51,8 +58,10 @@ namespace MyApp
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
-            app.UseMvc();
-        }
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute("default", "{controller=Drink}/{action=List}/{id?}");
+            });
+           }
     }
 }

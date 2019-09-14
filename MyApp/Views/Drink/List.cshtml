@@ -1,0 +1,32 @@
+﻿@using MyApp.Models
+@model IEnumerable<drinks>
+    <div>
+
+        List of all available drinks
+    </div>
+@{ 
+    foreach (var drink in Model)
+    {
+        <div>
+            <ul>
+                <li>
+                    <h4>Drink Name:   @drink.drinkName</h4>
+                </li>
+
+                <li>
+                    <h6>Drink Category @drink.Category</h6>
+                </li>
+
+                <li>
+                    <h4>Price: @drink.price</h4>
+                </li>
+
+                <li>
+                    <img src="@drink.Photo" alt="Alternate Text" />
+                </li>
+            </ul>
+        </div>
+    }
+}
+@{
+}
