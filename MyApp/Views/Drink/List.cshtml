@@ -1,31 +1,43 @@
 ﻿
-    <div>
+<div>
 
-        List of all available drinks
-    </div>
-@{ 
-    foreach (var drink in Model)
-    {
-        <div>
-            <ul>
-                <li>
-                    <h4>Drink Name:   @drink.drinkName</h4>
-                </li>
+    List of all available drinks
+</div>
+<div class="row">
+    @{
 
-                <li>
-                    <h6>Drink Category @drink.Category</h6>
-                </li>
+        foreach (var drink in Model)
+        {
+            <div class="col-lg-3 ">
+                
 
-                <li>
-                    <h4>Price: @drink.price</h4>
-                </li>
-
-                <li>
-                    <img src="@drink.Photo" alt="Alternate Text" />
-                </li>
-            </ul>
-        </div>
+                    <div class="card" >
+                        <img src="@drink.Photo" alt="image" class="card-img-top" width="200px" height="200px" />
+                        <div class="card-body">
+                            <h2 class="card-title">@drink.drinkName</h2>
+                            <p class="card-text">@drink.shortDescription</p>
+                            <a href="#" class="btn btn-primary">See details</a>
+                        </div>
+                    </div>
+                </div>
+           
+        }
     }
-}
-@{
-}
+</div>
+    @{
+    }
+
+    @*<div class="container">
+  <h2>Card Image</h2>
+  <p>Image at the top (card-img-top):</p>
+  <div class="card" style="width:400px">
+    <img class="card-img-top" src="img_avatar1.png" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">John Doe</h4>
+      <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+      <a href="#" class="btn btn-primary">See Profile</a>
+    </div>
+  </div>
+  
+</div>
+        </div>*@
