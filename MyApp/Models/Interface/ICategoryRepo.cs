@@ -7,6 +7,6 @@ namespace MyApp.Models.Interface
 {
   public  interface ICategoryRepo
     {
-        IEnumerable<Category> categories { get; set; }
+        IEnumerable<Category> categories { get;}
     }
 }

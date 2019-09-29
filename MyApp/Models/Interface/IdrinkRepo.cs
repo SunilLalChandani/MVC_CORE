@@ -7,8 +7,8 @@ namespace MyApp.Models.Interface
 {
     public interface IdrinkRepo
     {
-         IEnumerable<drinks> drinks { get; set; }
-        IEnumerable<drinks> favDrink { get; set; }
+         IEnumerable<drinks> drinks { get; }
+        IEnumerable<drinks> favDrink { get; }
 
         drinks GetDrinksById(int id);
 
