@@ -7,10 +7,13 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MyApp.Models.Context;
 using MyApp.Models.Interface;
 using MyApp.Models.Mock;
+using MyApp.Models.Repo;
 
 namespace MyApp
 {
@@ -26,10 +29,10 @@ namespace MyApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //add here sql code
+            services.AddDbContext<AppDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddTransient<IdrinkRepo, MockDrinkRepo>();
-            services.AddTransient<ICategoryRepo, MockCateogryRepo>();
+            services.AddTransient<IdrinkRepo, DrinkRepo>();
+            services.AddTransient<ICategoryRepo, CatRepo>();
 
 
             services.Configure<CookiePolicyOptions>(options =>

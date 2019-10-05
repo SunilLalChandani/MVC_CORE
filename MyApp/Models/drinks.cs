@@ -10,6 +10,7 @@ namespace MyApp.Models
     public class drinks
     {
         [Required]
+        [Key]
         public int drinkId { get; set; }
         [MaxLength(30)]
         public string drinkName { get; set; }

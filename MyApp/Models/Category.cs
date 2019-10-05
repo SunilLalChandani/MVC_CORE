@@ -8,6 +8,7 @@ namespace MyApp.Models
 {
     public class Category
     {   [Required]
+        [Key]
         public int categoryId { get; set; }
         [MaxLength(30)]
         public string categoryName { get; set; }
