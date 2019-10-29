@@ -9,8 +9,8 @@ using MyApp.Models.Context;
 namespace MyApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20191005183957_sunny")]
-    partial class sunny
+    [Migration("20191008145805_initals")]
+    partial class initals
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,6 +34,10 @@ namespace MyApp.Migrations
                     b.HasKey("categoryId");
 
                     b.ToTable("categories");
+
+                    b.HasData(
+                        new { categoryId = 1, categoryName = "Beer", description = "Beer has 8% alcohol" }
+                    );
                 });
 
             modelBuilder.Entity("MyApp.Models.drinks", b =>
@@ -68,6 +72,12 @@ namespace MyApp.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("drinks");
+
+                    b.HasData(
+                        new { drinkId = 1, CategoryId = 1, Photo = "https://cheers.com.np/uploads/products/978328434466665691222391259197415673358.png", drinkName = "Bira white", inStock = true, price = 0, storage = 0 },
+                        new { drinkId = 2, CategoryId = 1, Photo = "https://media.danmurphys.com.au/dmo/product/23100-1.png", drinkName = "Carlsburg", inStock = true, price = 0, storage = 0 },
+                        new { drinkId = 3, CategoryId = 1, Photo = "https://www.trzcacak.rs/myfile/detail/37-373891_next-corona-beer-bottle-png.png", drinkName = "Corona", inStock = true, price = 0, storage = 0 }
+                    );
                 });
 
             modelBuilder.Entity("MyApp.Models.drinks", b =>

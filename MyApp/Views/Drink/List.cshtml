@@ -1,30 +1,36 @@
-﻿@using MyApp.Models
-@model IEnumerable<drinks>
-    <div>
+﻿
+<div>
 
-        List of all available drinks
-    </div>
-@{ 
-    foreach (var drink in Model)
+    List of all available drinks
+</div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+
+
+@{
+    foreach (var drink in Model.drinks)
     {
-        <div>
-            <ul>
-                <li>
-                    <h4>Drink Name:   @drink.drinkName</h4>
-                </li>
+        <div class="row">
+            <div class="col-lg-3">
 
-                <li>
-                    <h6>Drink Category @drink.Category</h6>
-                </li>
 
-                <li>
-                    <h4>Price: @drink.price</h4>
-                </li>
+                <h4>Drink Name:   @drink.drinkName</h4>
+            </div>
 
-                <li>
-                    <img src="@drink.Photo" alt="Alternate Text" />
-                </li>
-            </ul>
+            <div class="col-lg-3">
+
+                <h6>Drink Category @drink.Category</h6>
+            </div>
+
+            <div class="col-lg-3">
+
+                <h4>Price: @drink.price</h4>
+            </div>
+
+            <div class="col-lg-3">
+
+                <img src="@drink.Photo" alt="Alternate Text"  style="height:100px;width:100px;"/>
+            </div>
         </div>
     }
 }

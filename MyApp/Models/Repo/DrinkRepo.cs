@@ -19,9 +19,9 @@ namespace MyApp.Models.Repo
         }
 
 
-      IEnumerable<drinks> IdrinkRepo.drinks => _appDbContext.drinks.ToList<drinks>();
+        IEnumerable<drinks> IdrinkRepo.drinks => _appDbContext.drinks.ToList();
         public IEnumerable<drinks> favDrink => _appDbContext.drinks.Where(f => f.inStock).Include(c => c.Category);
 
-        public drinks GetDrinksById(int id) => _appDbContext.drinks.FirstOrDefault(); 
+        public drinks GetDrinksById(int id) => _appDbContext.drinks.FirstOrDefault(p => p.drinkId == id);
     }
 }

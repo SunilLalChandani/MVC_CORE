@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MyApp.Models.Interface;
+using MyApp.Models.ViewModel;
 
 namespace MyApp.Controllers
 {
@@ -20,9 +21,11 @@ namespace MyApp.Controllers
 
         public IActionResult List()
         {
-            var drink_list = _idrinkRepo.drinks;
-            return View(drink_list);
-        }
+            DrinkListViewModel drinkListViewModel = new DrinkListViewModel();
+            drinkListViewModel.drinks = _idrinkRepo.drinks;
+            
+            return View(drinkListViewModel);
+         }
         public IActionResult Index() {
             return View();
         }
