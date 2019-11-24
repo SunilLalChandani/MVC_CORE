@@ -14,7 +14,7 @@ namespace MyApp.Models.Context
 
         public virtual DbSet<drinks> drinks { get; set; }
         public virtual DbSet<Category> categories { get; set; }
-
+        public virtual DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<drinks>().HasData(new drinks { drinkId = 1,drinkName="Bira white",CategoryId=1,inStock=true,Photo= "https://cheers.com.np/uploads/products/978328434466665691222391259197415673358.png"},

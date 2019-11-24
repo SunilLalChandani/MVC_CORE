@@ -8,31 +8,11 @@
 
 
 @{
-    foreach (var drink in Model.drinks)
+    foreach (drinks drink in Model.drinks)
     {
-        <div class="row">
-            <div class="col-lg-3">
-
-
-                <h4>Drink Name:   @drink.drinkName</h4>
-            </div>
-
-            <div class="col-lg-3">
-
-                <h6>Drink Category @drink.Category</h6>
-            </div>
-
-            <div class="col-lg-3">
-
-                <h4>Price: @drink.price</h4>
-            </div>
-
-            <div class="col-lg-3">
-
-                <img src="@drink.Photo" alt="Alternate Text"  style="height:100px;width:100px;"/>
-            </div>
-        </div>
+      @await Html.PartialAsync("DrinksSummary", drink);
     }
 }
 @{
 }
+  
